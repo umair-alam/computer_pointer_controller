@@ -209,9 +209,9 @@ optional arguments:
 | Head Pose Estimation | 0.11118078231811523 |0.06965756416320801 | 0.7631175518035889|
 | Gaze Estimation | 0.10722184181213379 |0.09084081649780273 | 0.5559959411621094|
 
-*Total Average Inference Time (FP16): 0.03079759081204732 ms *
-*Total Average Inference Time (FP32): 0.03198266798450101 ms *
-*Total Average Inference Time (INT8): 0.027267708497888902 ms *
+*Total Average Inference Time (FP16): 0.03079759081204732 ms *  
+*Total Average Inference Time (FP32): 0.03198266798450101 ms *  
+*Total Average Inference Time (INT8): 0.027267708497888902 ms *  
 
 ### Models Loading Time with Device GPU  
 
@@ -221,15 +221,18 @@ optional arguments:
 
 |Models| FP16|FP32|INT8|
 |----------------|---------------------|-------------------|-------------------|
-| Face Detection | 0.2433936595916748  |0.14208269119262695 | 0.6201651096343994|
-| Facial Landmarks Detection | 0.1449739933013916 |0.14208269119262695 | 0.6201651096343994| 
-| Head Pose Estimation | 0.14208269119262695 |0.14208269119262695 | 0.6201651096343994|
-| Gaze Estimation | 0.21468305587768555 |0.14208269119262695 | 0.6201651096343994|
+| Face Detection | 32.952716588974  |34.62701606750488 | 33.124125719070435|
+| Facial Landmarks Detection | 4.6950366497039795 |5.318625211715698 | 7.4481658935546875| 
+| Head Pose Estimation | 7.394354581832886 |7.312445402145386 | 8.990448713302612|
+| Gaze Estimation | 8.307527780532837 |8.132406234741211 | 10.664573907852173|
 
-*Total Average Inference Time of All Models is: *
+*Total Average Inference Time (FP16): 0.04709758429691709 ms *  
+*Total Average Inference Time (FP32): 0.043879295650281404 ms *  
+*Total Average Inference Time (INT8): 0.045806225608376896 ms *  
 
 ## Results
-*TODO:* Discuss the benchmark results and explain why you are getting the results you are getting. For instance, explain why there is difference in inference time for FP32, FP16 and INT8 models.
+As from the above results, it is clear that the IGPU performance is very much low incase of model loading and the highest time it took to load Face detection model, however the loading time is different in three executions for same precision level. If we consider as the model loading is a one time task then the average inference time is good. 
+Incase of CPU the model loading time of INT8 models are highest and I also experience some performance lags on my device but the FP16 models run very smoothly and perform better.
 
 ### Async Inference
 As I have mentioned earlier about the hardware I am using, Intel Core m3 CPU is a low powered device therefore Async Inference helps in achieving somehow good performance in case of CPU, the execution thread can wait until the result is available therefore reducing burden on edge device.
