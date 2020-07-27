@@ -64,15 +64,53 @@ $ source /opt/intel/openvino/bin/setupvars.sh command.
 configure the model optimizer by changing to the prerequisites directory with $ cd /opt/intel/openvino/deployment_tools/model_optimizer/install_prerequisites to start the process. Then run the script to configure the model optimizer with $ sudo ./install_prerequisites.sh. If you want to install only a specified model use the $ sudo ./install_prequisites_<model name>.sh command instead.
 ~~~
 
-### Verify the installation
+#### Verify the installation
 
 Go to the Inference Engine demo directory and run the image classification verification script
 ~~~
 $ cd /opt/intel/openvino/deployment_tools/demo
 $ ./demo_squeezenet_download_convert_run.sh.
 ~~~
+<br><br><br>
+### Project Dependencies
+<br><br><br>
+As stated in requirements.txt file, following are pre-requisites
 
-### Install and creat python virtual environment
+image==1.5.27
+ipdb==0.12.3
+ipython==7.10.2
+numpy==1.17.4
+Pillow==6.2.1
+requests==2.22.0
+virtualenv==16.7.9
+
+<br><br><br>
+### Project Directory Structure
+<br><br><br>
+```bash
+├── bin
+│   └── demo.mp4
+├── models
+│   └── intel
+│       ├── face-detection-adas-binary-0001
+│       ├── gaze-estimation-adas-0002
+│       ├── head-pose-estimation-adas-0001
+│       └── landmarks-regression-retail-0009
+├── resources
+│   └── pipeline.png
+├── src
+│   ├── app.py
+│   ├── face_detection.py
+│   ├── facial_landmarks_detection.py
+│   ├── gaze_estimation.py
+│   ├── head_pose_estimation.py
+│   ├── input_feeder.py
+│   └── mouse_controller.py
+├── README.md
+└── requirements.txt
+```
+
+#### Install and creat python virtual environment
 
 ~~~
 $ pip3 install virtualenv
@@ -80,11 +118,11 @@ $ virtualenv venv
 $ source venv/bin/activate
 
 ~~~
-### Activate OpenVINO enivromrent 
+#### Activate OpenVINO enivromrent 
 ~~~
 $ source /opt/intel/openvino/bin/setupvars.sh
 ~~~
-### Install project dependencies
+#### Install project dependencies
 ~~~
 $ pip3 install -r requirements.txt
 ~~~
@@ -115,6 +153,8 @@ python3 /opt/intel/openvino/deployment_tools/open_model_zoo/tools/downloader/dow
 python3 /opt/intel/openvino/deployment_tools/open_model_zoo/tools/downloader/downloader.py --name gaze-estimation-adas-0002 -o ~/project_pointer/models/
 
 ```
+
+
 *TODO:* Explain the setup procedures to run your project. For instance, this can include your project directory structure, the models you need to download and where to place them etc. Also include details about how to install the dependencies your project requires.
 
 ## Demo
