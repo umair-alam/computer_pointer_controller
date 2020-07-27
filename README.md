@@ -39,9 +39,9 @@ $ sudo make install
 ~~~
 Now to install OpenVINO
 Register and download OpenVINO from the official website
-Change directories to your downloads directory with $ cd ~/Downloads
+Change directories to your downloads directory 
 ~~~
-l_openvino_toolkit_p_2020.1.023.tgz
+$ cd ~/Downloads
 ~~~
 Untar the file using the following command and move into the directory
 ~~~
@@ -88,7 +88,33 @@ $ source /opt/intel/openvino/bin/setupvars.sh
 ~~~
 $ pip3 install -r requirements.txt
 ~~~
+### Download required models
 
+#### face-detection-adas-binary-0001 
+
+``` 
+python3 /opt/intel/openvino/deployment_tools/open_model_zoo/tools/downloader/downloader.py --name face-detection-adas-binary-0001 -o ~/project_pointer/models/
+
+```
+#### head-pose-estimation-adas-0001
+
+``` 
+python3 /opt/intel/openvino/deployment_tools/open_model_zoo/tools/downloader/downloader.py --name head-pose-estimation-adas-0001 -o ~/project_pointer/models/
+
+```
+#### landmarks-regression-retail-0009
+
+``` 
+python3 /opt/intel/openvino/deployment_tools/open_model_zoo/tools/downloader/downloader.py --name landmarks-regression-retail-0009 -o ~/project_pointer/models/
+
+```
+
+#### gaze-estimation-adas-0002 
+
+``` 
+python3 /opt/intel/openvino/deployment_tools/open_model_zoo/tools/downloader/downloader.py --name gaze-estimation-adas-0002 -o ~/project_pointer/models/
+
+```
 *TODO:* Explain the setup procedures to run your project. For instance, this can include your project directory structure, the models you need to download and where to place them etc. Also include details about how to install the dependencies your project requires.
 
 ## Demo
