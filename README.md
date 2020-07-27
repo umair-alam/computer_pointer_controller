@@ -40,52 +40,54 @@ $ sudo make install
 Now to install OpenVINO
 Register and download OpenVINO from the official website
 Change directories to your downloads directory with $ cd ~/Downloads
-
+~~~
 l_openvino_toolkit_p_2020.1.023.tgz
+~~~
 Untar the file using the following command and move into the directory
 ~~~
-$ tar -xvf l_openvino_toolkit_p_<version>.tgz
+$ tar -xvf l_openvino_toolkit_p_2020.1.023.tgz
 $ cd l_openvino_toolkit_p_2020.1.023
 ~~~
 Install using a GUI Installation
 ~~~
 $ sudo ./install_GUI.sh
-~~~
+
 Openvino will be installed on the /opt/intel/l_openvino_toolkit_p_2020.1.023 directory
-
-10- The first part of the installation will be complete, next you have to set up the variables, configure the model optimizer and add dependencies.
-
-11- Change to the install_dependencies directory with $ cd /opt/intel/openvino/install_dependencies
-
-12- Run the script to download the needed dependencies with the following:
+~~~
+Configure the model optimizer and add dependencies.
+~~~
+$ cd /opt/intel/openvino/install_dependencies
 
 $ sudo -E ./install_openvino_dependencies.sh
 
-13- Next set your variables with the
-
 $ source /opt/intel/openvino/bin/setupvars.sh command.
+configure the model optimizer by changing to the prerequisites directory with $ cd /opt/intel/openvino/deployment_tools/model_optimizer/install_prerequisites to start the process. Then run the script to configure the model optimizer with $ sudo ./install_prerequisites.sh. If you want to install only a specified model use the $ sudo ./install_prequisites_<model name>.sh command instead.
+~~~
 
-Optionally you can add it to your .bashrc file in the last line. Use nano or vi to edit the file. Just add that line at the end and source it.
+### Verify the installation
 
-14- Next, configure the model optimizer by changing to the prerequisites directory with $ cd /opt/intel/openvino/deployment_tools/model_optimizer/install_prerequisites to start the process. Then run the script to configure the model optimizer with $ sudo ./install_prerequisites.sh. If you want to install only a specified model use the $ sudo ./install_prequisites_<model name>.sh command instead.
+Go to the Inference Engine demo directory and run the image classification verification script
+~~~
+$ cd /opt/intel/openvino/deployment_tools/demo
+$ ./demo_squeezenet_download_convert_run.sh.
+~~~
 
-15- To verify installation, go to the Inference Engine demo directory with $ cd /opt/intel/openvino/deployment_tools/demo.
+### Install and creat python virtual environment
 
-16- Then run the image classification verification script with $ ./demo_squeezenet_download_convert_run.sh.
+~~~
+$ pip3 install virtualenv
+$ virtualenv venv
+$ source venv/bin/activate
 
-17- If it says execution successful then it has run correctly.
-Image for post
-Image for post
-
-18- Next, run the Inference Pipeline verification script with $ ./demo_security_barrier_camera.sh. When it completes you should get an image that displays the resulting frame with detections rendered as bounding boxes and text. Your framerate will vary depending on the machine you have. Close the window to verify the installation.
-Image for post
-Image for post
-Img src = https://docs.openvinotoolkit.org/latest/inference_pipeline_script_lnx.png
-
-18- Congratulations, you have installed OpenVINO.
-Image for post
-Image for post
-
+~~~
+### Activate OpenVINO enivromrent 
+~~~
+$ source /opt/intel/openvino/bin/setupvars.sh
+~~~
+### Install project dependencies
+~~~
+$ pip3 install -r requirements.txt
+~~~
 
 *TODO:* Explain the setup procedures to run your project. For instance, this can include your project directory structure, the models you need to download and where to place them etc. Also include details about how to install the dependencies your project requires.
 
