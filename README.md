@@ -204,17 +204,19 @@ optional arguments:
 ****
 |Models| FP16|FP32|INT8|
 |----------------|---------------------|-------------------|-------------------|
-| Face Detection | 0.2433936595916748  |0.14208269119262695 | 0.6201651096343994|
-| Facial Landmarks Detection | 0.1449739933013916 |0.14208269119262695 | 0.6201651096343994| 
-| Head Pose Estimation | 0.14208269119262695 |0.14208269119262695 | 0.6201651096343994|
-| Gaze Estimation | 0.21468305587768555 |0.14208269119262695 | 0.6201651096343994|
+| Face Detection | 0.19115376472473145  |0.2052755355834961 | 0.1891341209411621|
+| Facial Landmarks Detection | 0.057404518127441406 |0.05697441101074219 | 0.2378244400024414| 
+| Head Pose Estimation | 0.11118078231811523 |0.06965756416320801 | 0.7631175518035889|
+| Gaze Estimation | 0.10722184181213379 |0.09084081649780273 | 0.5559959411621094|
 
-*Total Average Inference Time of All Models is: *
+*Total Average Inference Time (FP16): 0.03079759081204732 ms *
+*Total Average Inference Time (FP32): 0.03198266798450101 ms *
+*Total Average Inference Time (INT8): 0.027267708497888902 ms *
 
 ### Models Loading Time with Device GPU  
 
 **Hardware Specifications**  
-*Intel® HD Graphics 615 (GT2)   
+*Intel® HD Graphics 615 (GT2)*   
 *Memory: 8 GB DDR4*  
 
 |Models| FP16|FP32|INT8|
@@ -229,12 +231,21 @@ optional arguments:
 ## Results
 *TODO:* Discuss the benchmark results and explain why you are getting the results you are getting. For instance, explain why there is difference in inference time for FP32, FP16 and INT8 models.
 
-## Stand Out Suggestions
-This is where you can provide information about the stand out suggestions that you have attempted.
-
 ### Async Inference
 As I have mentioned earlier about the hardware I am using, Intel Core m3 CPU is a low powered device therefore Async Inference helps in achieving somehow good performance in case of CPU, the execution thread can wait until the result is available therefore reducing burden on edge device.
 
 ### Edge Cases
 1. Face detection can be done from a particular distance (i.e. Face need to be closer to the camera to be able to detect)
 2. Multiple face detection: The system detect multiple faces and the face closer to the camera is taken into consideration. 
+
+
+
+### References:
+1. Udacity Course work and project workspaces
+2. Udacity knowledge hub
+3. https://docs.openvinotoolkit.org/latest/openvino_docs_install_guides_installing_openvino_linux.html
+4. https://docs.openvinotoolkit.org/latest/omz_models_intel_face_detection_adas_binary_0001_description_face_detection_adas_binary_0001.html
+5. https://docs.openvinotoolkit.org/latest/omz_models_intel_head_pose_estimation_adas_0001_description_head_pose_estimation_adas_0001.html
+6. https://docs.openvinotoolkit.org/latest/omz_models_intel_landmarks_regression_retail_0009_description_landmarks_regression_retail_0009.html
+7. https://docs.openvinotoolkit.org/latest/omz_models_intel_gaze_estimation_adas_0002_description_gaze_estimation_adas_0002.html
+
