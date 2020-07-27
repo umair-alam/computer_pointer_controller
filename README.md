@@ -81,31 +81,6 @@ numpy==1.17.4
 Pillow==6.2.1  
 requests==2.22.0  
 virtualenv==16.7.9  
-### Project Directory Structure
-
-```bash
-.
-├── bin
-│   └── demo.mp4
-├── models
-│   └── intel
-│       ├── face-detection-adas-binary-0001
-│       ├── gaze-estimation-adas-0002
-│       ├── head-pose-estimation-adas-0001
-│       └── landmarks-regression-retail-0009
-├── resources
-│   └── pipeline.png
-├── src
-│   ├── app.py
-│   ├── face_detection.py
-│   ├── facial_landmarks_detection.py
-│   ├── gaze_estimation.py
-│   ├── head_pose_estimation.py
-│   ├── input_feeder.py
-│   └── mouse_controller.py
-├── README.md
-└── requirements.txt
-```
 
 #### Install and creat python virtual environment
 
@@ -150,15 +125,74 @@ python3 /opt/intel/openvino/deployment_tools/open_model_zoo/tools/downloader/dow
 python3 /opt/intel/openvino/deployment_tools/open_model_zoo/tools/downloader/downloader.py --name gaze-estimation-adas-0002 -o ~/project_pointer/models/
 
 ```
+### Project Directory Structure
 
-
-*TODO:* Explain the setup procedures to run your project. For instance, this can include your project directory structure, the models you need to download and where to place them etc. Also include details about how to install the dependencies your project requires.
+```bash
+.
+├── bin
+│   └── demo.mp4
+├── models
+│   └── intel
+│       ├── face-detection-adas-binary-0001
+│       ├── gaze-estimation-adas-0002
+│       ├── head-pose-estimation-adas-0001
+│       └── landmarks-regression-retail-0009
+├── resources
+│   └── pipeline.png
+├── src
+│   ├── app.py
+│   ├── face_detection.py
+│   ├── facial_landmarks_detection.py
+│   ├── gaze_estimation.py
+│   ├── head_pose_estimation.py
+│   ├── input_feeder.py
+│   └── mouse_controller.py
+├── README.md
+└── requirements.txt
+```
 
 ## Demo
-*TODO:* Explain how to run a basic demo of your model.
+Open terminal and initialize virtual environment and openvino environment by typing the following commands
+```
+$ source venv/bin/activate
+$ source /opt/intel/openvino/bin/setupvars.sh
+```
+cd into the project directory and type
+```
+$ python3 src/app.py
+```
+The command line arguments are defined by default and the model paths are also defined, therefore no need to specify the command line arguments. The details of the arguments is given in the Documentation tab.
 
 ## Documentation
-*TODO:* Include any documentation that users might need to better understand your project code. For instance, this is a good place to explain the command line arguments that your project supports.
+There are following command line arguments that is supported by this project
+
+```
+usage: app.py [-h] [-m_FD FACE_DETECTION] [-m_HP HEAD_POSE_ESTIMATION]
+              [-m_LM FACIAL_LANDMARKS_DETECTION] [-m_GE GAZE_ESTIMATION]
+              [-i INPUT] [-it INPUT_TYPE] [-d DEVICE]
+              [--extensions EXTENSIONS] [-pt PROB_THRESHOLD]
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -m_FD FACE_DETECTION, --face_detection FACE_DETECTION
+                        Path to pre-trained Face Detection model
+  -m_HP HEAD_POSE_ESTIMATION, --head_pose_estimation HEAD_POSE_ESTIMATION
+                        Path to pre-trained Head Pose Estimation Model
+  -m_LM FACIAL_LANDMARKS_DETECTION, --facial_landmarks_detection FACIAL_LANDMARKS_DETECTION
+                        Path to pre-trained Facial Landmarks Detection Model
+  -m_GE GAZE_ESTIMATION, --gaze_estimation GAZE_ESTIMATION
+                        Path to pre-trained Gaze Estimation Model
+  -i INPUT, --input INPUT
+                        Input File Path
+  -it INPUT_TYPE, --input_type INPUT_TYPE
+                        Input type: video or cam
+  -d DEVICE, --device DEVICE
+                        Device to run iinference on: Default CPU.
+  --extensions EXTENSIONS
+                        Any extensions for the selected device
+  -pt PROB_THRESHOLD, --prob_threshold PROB_THRESHOLD
+                        Thershold value for filtering: Default:0.5
+```
 
 ## Benchmarks
 *TODO:* Include the benchmark results of running your model on multiple hardwares and multiple model precisions. Your benchmarks can include: model loading time, input/output processing time, model inference time etc.
