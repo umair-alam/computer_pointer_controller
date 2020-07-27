@@ -195,6 +195,73 @@ optional arguments:
 ```
 
 ## Benchmarks
+
+### Models Loading Time with Device CPU
+
+**Hardware Specifications**  
+*Intel® Core™ m3-7Y30 CPU @ 1.00GHz × 4*  
+*Memory: 8 GB DDR4*  
+**Models Precision FP32**  
+
+|Models|Loading Times (ms)|Total Average Inference Time (ms)|
+|-----------------------------------------------------|---------------------|:-------------------:|
+| Face Detection (FP32) | 0.2433936595916748  | rowspan=4||
+| Facial Landmarks Detection | 0.1449739933013916 | || 
+| Head Pose Estimation | 0.14208269119262695 | ||
+| Gaze Estimation | 0.21468305587768555 | ||
+
+**Models Precision FP16**  
+
+|Models|Loading Times (ms)|Total Average Inference Time (ms)|
+|-----------------------------------------------------|---------------------|:-------------------:|
+| Face Detection (FP32) | 0.2433936595916748  | |
+| Facial Landmarks Detection | 0.1449739933013916  | 0.6543600559234619|
+| Head Pose Estimation | 0.14208269119262695 | 0.6201651096343994|
+| Gaze Estimation | 0.21468305587768555 | 0.3256380558013916|
+
+**Models Precision INT8**  
+
+|Models|Loading Times (ms)|Total Average Inference Time (ms)|
+|-----------------------------------------------------|---------------------|:-------------------:|
+| Face Detection (FP32) | 0.2433936595916748  | 0.26357316970825195 |
+| Facial Landmarks Detection | 0.1449739933013916  | 0.6543600559234619|
+| Head Pose Estimation | 0.14208269119262695 | 0.6201651096343994|
+| Gaze Estimation | 0.21468305587768555 | 0.3256380558013916|
+
+### Models Loading Time with Device GPU  
+
+**Hardware Specifications**  
+*Intel® HD Graphics 615 (GT2)   
+*Memory: 8 GB DDR4*  
+
+**Models Precision FP32**  
+
+|Models|Loading Times (ms)|Total Average Inference Time (ms)|
+|-----------------------------------------------------|---------------------|:-------------------:|
+| Face Detection (FP32) | 0.2433936595916748  | 0.26357316970825195 |
+| Facial Landmarks Detection | 0.1449739933013916  | 0.6543600559234619|
+| Head Pose Estimation | 0.14208269119262695 | 0.6201651096343994|
+| Gaze Estimation | 0.21468305587768555 | 0.3256380558013916|
+
+**Models Precision FP16**  
+
+|Models|Loading Times (ms)|Total Average Inference Time (ms)|
+|-----------------------------------------------------|---------------------|:-------------------:|
+| Face Detection (FP32) | 0.2433936595916748  | 0.26357316970825195 |
+| Facial Landmarks Detection | 0.1449739933013916  | 0.6543600559234619|
+| Head Pose Estimation | 0.14208269119262695 | 0.6201651096343994|
+| Gaze Estimation | 0.21468305587768555 | 0.3256380558013916|
+
+**Models Precision INT8**  
+
+|Models|Loading Times (ms)|Total Average Inference Time (ms)|
+|-----------------------------------------------------|---------------------|:-------------------:|
+| Face Detection (FP32) | 0.2433936595916748  | 0.26357316970825195 |
+| Facial Landmarks Detection | 0.1449739933013916  | 0.6543600559234619|
+| Head Pose Estimation | 0.14208269119262695 | 0.6201651096343994|
+| Gaze Estimation | 0.21468305587768555 | 0.3256380558013916|
+
+
 *TODO:* Include the benchmark results of running your model on multiple hardwares and multiple model precisions. Your benchmarks can include: model loading time, input/output processing time, model inference time etc.
 
 ## Results
