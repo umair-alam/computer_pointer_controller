@@ -1,6 +1,8 @@
 # Computer Pointer Controller
 
-*TODO:* Write a short introduction to your project
+### Description
+The computer pointer controller project is a part of Intel Edge AI for IoT Developers Nano Degree offered by Udacity. The purpose of this project os to control computer pointer with eye gaze and head pose angles. The pretrained models were selected which can run parallel to other models, all the selected models are from Open Model Zoo. The model pipeline depicts the the usage of output of one model into other models to perform predictions, here is the pipeline diagram for more insight.
+
 
 ## Project Set Up and Installation
 *TODO:* Explain the setup procedures to run your project. For instance, this can include your project directory structure, the models you need to download and where to place them etc. Also include details about how to install the dependencies your project requires.
