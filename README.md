@@ -1,7 +1,7 @@
 # Computer Pointer Controller
 
 ### Description
-The computer pointer controller project is a part of Intel Edge AI for IoT Developers Nano Degree offered by Udacity. The purpose of this project os to control computer pointer with eye gaze and head pose angles. The pretrained models were selected which can run parallel to other models, all the selected models are from Open Model Zoo. The model pipeline depicts the the usage of output of one model into other models to perform predictions, here is the pipeline diagram for more insight. <br><br>
+The computer pointer controller project is the part of Intel Edge AI for IoT Developers Nano Degree offered by Udacity. The purpose of this project is to control computer pointer with eye gaze and head pose angles. The pretrained models were selected which can run parallel to other models, all the selected models are from Open Model Zoo. The model pipeline depicts the the usage of output of one model into other models to perform predictions and controlling the mouse pointer by utilising pyautogui python module, here is the pipeline diagram for more insight. <br><br>
 ![Pipeline](https://github.com/umair-alam/computer_pointer_controller/blob/master/resources/pipeline.png)
 
 ## Project Set Up and Installation
@@ -71,23 +71,20 @@ Go to the Inference Engine demo directory and run the image classification verif
 $ cd /opt/intel/openvino/deployment_tools/demo
 $ ./demo_squeezenet_download_convert_run.sh.
 ~~~
-<br><br><br>
 ### Project Dependencies
-<br><br><br>
 As stated in requirements.txt file, following are pre-requisites
 
-image==1.5.27
-ipdb==0.12.3
-ipython==7.10.2
-numpy==1.17.4
-Pillow==6.2.1
-requests==2.22.0
-virtualenv==16.7.9
-
-<br><br><br>
+image==1.5.27  
+ipdb==0.12.3  
+ipython==7.10.2  
+numpy==1.17.4  
+Pillow==6.2.1  
+requests==2.22.0  
+virtualenv==16.7.9  
 ### Project Directory Structure
-<br><br><br>
+
 ```bash
+.
 ├── bin
 │   └── demo.mp4
 ├── models
