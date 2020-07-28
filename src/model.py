@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 '''
 This is a sample class for a model. You may choose to use it as-is or make any changes to it.
 This has been provided just to give you an idea of how to structure your model class.
@@ -44,3 +45,6 @@ class Model_X:
     you might have to preprocess the output. This function is where you can do that.
     '''
         raise NotImplementedError
+=======
+
+>>>>>>> 7093e3bf6859f1d09b88448ea8a23946ba57ba2e
